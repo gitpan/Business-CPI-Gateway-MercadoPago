@@ -11,11 +11,7 @@ use JSON;
 
 extends 'Business::CPI::Gateway::Base';
 
-our $VERSION = '0.100'; # VERSION
-
-has '+checkout_url' =>
-  ( default => sub { 'https://pagseguro.uol.com.br/v2/checkout/payment.html' },
-  );
+our $VERSION = '0.101'; # VERSION
 
 has '+currency' => ( default => sub { 'BRL' } );
 
@@ -145,7 +141,11 @@ sub get_checkout_code {
 
     my $content = $res->content;
     $json = from_json($content);
-    return $json->{'init_point'};
+
+    my $init_point = $json->{'init_point'};
+
+    $self->checkout_url($init_point);
+    return $init_point;
 }
 
 1;
@@ -162,7 +162,7 @@ Business::CPI::Gateway::MercadoPago - Business::CPI's Mercado Pago driver
 
 =head1 VERSION
 
-version 0.100
+version 0.101
 
 =head1 SYNOPSIS
 

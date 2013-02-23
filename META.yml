@@ -15,7 +15,7 @@ name: Business-CPI-Gateway-MercadoPago
 provides:
   Business::CPI::Gateway::MercadoPago:
     file: lib/Business/CPI/Gateway/MercadoPago.pm
-    version: 0.100
+    version: 0.101
 requires:
   Business::CPI: 0.903
   Moo: 1.0
@@ -23,4 +23,4 @@ requires:
   perl: 5.008
 resources:
   repository: git://github.com/thiagorondon/p5-business-cpi-gateway-mercadopago.git
-version: 0.100
+version: 0.101
