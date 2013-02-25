@@ -24,7 +24,7 @@ my %WriteMakefileArgs = (
     "Moo" => "1.0",
     "URI" => 0
   },
-  "VERSION" => "0.101",
+  "VERSION" => "0.102",
   "test" => {
     "TESTS" => "t/*.t"
   }

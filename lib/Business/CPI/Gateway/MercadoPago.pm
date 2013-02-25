@@ -11,7 +11,7 @@ use JSON;
 
 extends 'Business::CPI::Gateway::Base';
 
-our $VERSION = '0.101'; # VERSION
+our $VERSION = '0.102'; # VERSION
 
 has '+currency' => ( default => sub { 'BRL' } );
 
@@ -162,32 +162,32 @@ Business::CPI::Gateway::MercadoPago - Business::CPI's Mercado Pago driver
 
 =head1 VERSION
 
-version 0.101
+version 0.102
 
 =head1 SYNOPSIS
 
-	my $cpi = Business::CPI::Gateway::MercadoPago->new(
-    	receiver_email => $ENV{'MP_CLIENT_ID'},
-    	token          => $ENV{'MP_CLIENT_SECRET'},
-    	currency       => 'BRL',
-    	back_url       => 'https://com',
-	);
+    my $cpi = Business::CPI::Gateway::MercadoPago->new(
+        receiver_email => $ENV{'MP_CLIENT_ID'},
+        token          => $ENV{'MP_CLIENT_SECRET'},
+        currency       => 'BRL',
+        back_url       => 'https://com',
+    );
 
-	my $cart = $cpi->new_cart({
-    	buyer => {
-        	name  => 'Mr. Buyer',
-        	email => 'sender@andrewalker.net',
-    	}
-	});
+    my $cart = $cpi->new_cart({
+        buyer => {
+            name  => 'Mr. Buyer',
+            email => 'sender@andrewalker.net',
+        }
+    });
 
-	my $item = $cart->add_item({
-		id          => 1,
-    	quantity    => 1,
-    	price       => 200,
-    	description => 'my desc'
-	});
+    my $item = $cart->add_item({
+        id          => 1,
+        quantity    => 1,
+        price       => 200,
+        description => 'my desc'
+    });
 
-	$cart->get_checkout_code($shopping_id);
+    $cart->get_checkout_code($shopping_id);
 
 =head1 DESCRIPTION
 
